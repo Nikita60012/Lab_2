@@ -20,18 +20,45 @@ namespace Lab_2
                 myArray[i] = Convert.ToInt32(Console.ReadLine());
             }
 
+            Console.WriteLine("Выберите тип сортировки:");
+            Console.WriteLine("введите u для того, чтобы отсортировать по возрастанию или введите d для того, чтобы отсортировать по убыванию");
+            char mode = Convert.ToChar(Console.ReadLine());
+
             //Сортировка
-            for(int i = 1; i < length; i++)
-            {        
+            for (int i = 1; i < length; i++)
+            {
                 int correctNumber = myArray[i];
                 int j = i - 1;
 
-                //Проверка на величину числа и переставление чисел
-                while(j >= 0 && myArray[j] > correctNumber)
+
+                while (j >= 0)
                 {
-                    myArray[j + 1] = myArray[j];
-                    myArray[j] = correctNumber;
-                    j--;
+                    if (mode == 'u')
+                    {
+                        if (myArray[j] > correctNumber)
+                        {
+                            myArray[j + 1] = myArray[j];
+                            myArray[j] = correctNumber;
+                            j--;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    else if (mode == 'd')
+                    {
+                        if (myArray[j] < correctNumber)
+                        {
+                            myArray[j + 1] = myArray[j];
+                            myArray[j] = correctNumber;
+                            j--;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                 }
             }
 
