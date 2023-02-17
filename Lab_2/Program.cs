@@ -22,12 +22,14 @@ namespace Lab_2
 
             //Сортировка
             for(int i = 1; i < length; i++)
-            {
+            {        
                 int correctNumber = myArray[i];
                 int j = i - 1;
+
+                //Проверка на величину числа и переставление чисел
                 while(j >= 0 && myArray[j] > correctNumber)
                 {
-                    myArray[i] = myArray[j];
+                    myArray[j + 1] = myArray[j];
                     myArray[j] = correctNumber;
                     j--;
                 }
